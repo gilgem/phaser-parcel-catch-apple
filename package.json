@@ -1,0 +1,26 @@
+{
+  "name": "candy-catch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build-gh": "parcel build src/index.html --no-source-maps --out-dir dist  --public-url ./",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "assets": "^3.0.1",
+    "parcel-bundler": "^1.12.5",
+    "phaser": "^3.55.2",
+    "public": "^0.1.5"
+  },
+  "devDependencies": {
+    "parcel-plugin-static-files-copy": "^2.6.0"
+  },
+  "staticFiles": {
+    "staticPath": "public",
+    "watcherGlob": "**"
+  }
+}
