@@ -18,20 +18,30 @@ class Game extends Phaser.Scene
 
     score = 0
     
+    bgMusic
 
     preload()
     {
-        this.load.image('appleObj', 'assets/apple.png')
-        this.load.image('kart',  'assets/kart.png')
-        this.load.image('sky',  'assets/sky.png') 
-        this.load.image('ground',  'assets/ground.png') 
-        this.load.image('arrow', 'assets/arrow.png')
-        this.load.image('basket', 'assets/basket.png')
+        // IMAGES
+        this.load.image('appleObj', 'assets/images/apple.png')
+        this.load.image('kart',  'assets/images/kart.png')
+        this.load.image('sky',  'assets/images/sky.png') 
+        this.load.image('ground',  'assets/images/ground.png') 
+        this.load.image('arrow', 'assets/images/arrow.png')
+        this.load.image('basket', 'assets/images/basket.png')
+
+
+        // AUDIO
+        this.load.audio('bgmusic', ['assets/audio/bg.mp3'])
     }
 
     create()
     {
         
+        this.bgMusic = this.sound.add('bgmusic')
+        this.bgMusic.play()
+        //this.bgMusic.play()
+
         this.add.image(240, 0, 'sky') .setScrollFactor(1, 0) 
         this.appleSprite    =   this.physics.add.sprite(250, 20, 'appleObj').setScale(0.045) 
          
@@ -110,6 +120,7 @@ class Game extends Phaser.Scene
         this.arrowSprite.destroy()
         this.isOver = true
         this.score = 0 
+        this.sound.removeAll()
     }
 }
 
